@@ -57,10 +57,19 @@ namespace AracKiralamaOtomasyonu
 
         private void btnHesapla_Click(object sender, EventArgs e)
         {
-            TimeSpan gun = DateTime.Parse(dateDonus.Text) - DateTime.Parse(dateCikis.Text);
-            int gun2 = gun.Days;
-            txtGun.Text = gun2.ToString();
-            txtTutar.Text = (gun2 * int.Parse(txtKiraUcreti.Text)).ToString();
+            
+            if (dateCikis.Value > dateDonus.Value)
+            {
+                MessageBox.Show("Çıkış Tarihi Dönüş Tarihinden Büyük Olamaz!.");
+            }
+            else
+            {
+                TimeSpan gun = DateTime.Parse(dateDonus.Text) - DateTime.Parse(dateCikis.Text);
+                int gun2 = gun.Days;
+                txtGun.Text = gun2.ToString();
+                txtTutar.Text = (gun2 * int.Parse(txtKiraUcreti.Text)).ToString();
+
+            }
         }
 
         private void btnTemizle_Click(object sender, EventArgs e)
@@ -112,6 +121,8 @@ namespace AracKiralamaOtomasyonu
             comboAraclar.Text = "";
             Temizle();
             MessageBox.Show("Sözleşme Eklendi");
+
+            
 
         }
 
@@ -248,6 +259,16 @@ namespace AracKiralamaOtomasyonu
             {
                 MessageBox.Show("UYARI! Lütfen Seçim Yapınız");
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     } 
 }

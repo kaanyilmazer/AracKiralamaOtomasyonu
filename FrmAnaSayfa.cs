@@ -58,5 +58,10 @@ namespace AracKiralamaOtomasyonu
             satis.ShowDialog();
 
         }
+
+        private void FrmAnaSayfa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
